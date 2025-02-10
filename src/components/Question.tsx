@@ -39,9 +39,8 @@ const Question = ({
 
         return (
           <MathJax key={index} inline>
-          {`$${formattedMath}$`}
-        </MathJax>
-        
+            {`\\(${formattedMath}\\)`}
+          </MathJax>
         );
       }
 
