@@ -3,12 +3,14 @@ import "./App.css";
 import { router } from "./routes";
 import { MathJaxContext } from "better-react-mathjax";
 
-
+const config = {
+  loader: { load: ["input/asciimath", "output/chtml"] },
+};
 
 function App() {
   return (
     <>
-      <MathJaxContext >
+      <MathJaxContext config={config}>
         <RouterProvider router={router} />
       </MathJaxContext>
     </>
