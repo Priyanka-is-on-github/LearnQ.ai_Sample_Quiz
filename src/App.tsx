@@ -5,6 +5,7 @@ import { MathJaxContext } from "better-react-mathjax";
 
 const config = {
   loader: { load: ["input/asciimath", "output/chtml"] },
+  tex: { inlineMath: [["\\(", "\\)"]], displayMath: [["\\[", "\\]"]] },
 };
 
 function App() {
