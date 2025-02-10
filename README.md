@@ -1,50 +1,89 @@
-# React + TypeScript + Vite
+# Quiz Application
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A dynamic web-based quiz application built with React. This project allows users to select quiz difficulty levels, answer questions rendered with mathematical expressions using **better-react-mathjax**, navigate seamlessly between questions, and view detailed results upon submission.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Table of Contents
 
-## Expanding the ESLint configuration
+- [Features](#features)
+- [Tech Stack](#tech-stack)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Project Structure](#project-structure)
+- [Deployment](#deployment)
+- [Contributing](#contributing)
+- [License](#license)
+- [Contact](#contact)
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+---
 
-- Configure the top-level `parserOptions` property like this:
+## Features
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+- **Difficulty Selection**: Users choose from Easy, Medium, Hard, or Any.
+- **Single-Question Display**: Each question is shown individually with four options.
+- **MathJax Integration**: Mathematical expressions are rendered using [better-react-mathjax](https://www.npmjs.com/package/better-react-mathjax).
+- **Navigation**: 'Previous' and 'Next' buttons allow users to navigate and change answers.
+- **Result Overview**: Upon submission, users see their final score, correct answers, question difficulties, and percentage of correct responses.
+- **Excel into Json**: Ensures consistency in quiz data (converted from Excel to JSON).
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+---
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+## Tech Stack
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+- **React** – Front-end framework for building the user interface.
+- **better-react-mathjax** – For rendering LaTeX and mathematical expressions.
+- **XLSX (SheetJS)** – *(Optional)* For converting Excel files to JSON.
+- **CSS/SCSS** – For styling the application.
+- **Netlify/Heroku** – For deployment (choose based on your preference).
+
+---
+
+## Installation
+
+1. **Clone the repository:**
+
+   ```bash
+   git clone https://github.com/Priyanka-is-on-github/LearnQ.ai_Sample_Quiz.git
+   cd LearnQ.ai_Sample_Quiz
+   ```
+2. **Install dependencies:**
+   ```bash
+   npm install
+   ```
+3. **(Optional) Convert Excel Data to JSON:**
+   ```bash
+   node script.js
+   ```
+## Usage
+1. **Start the Development server:**
+  ```bash
+   npm start
+  ```
+2. **Open your Browser:**
+   Navigate to : http://localhost:5173  
+ 
+3. Interact with the quiz:
+    - Select a quiz difficulty.
+    - Answer questions one at a time (math expressions are rendered with MathJax).
+    - Use the 'Previous' and 'Next' buttons to navigate.
+    - Submit the quiz to view detailed results.
+
+## Project Structure
+```pgsql
+quiz-app/
+├── public/
+│   └── index.html
+├── src/
+│   ├── components/
+│   │   ├── DifficultySelection.js
+│   │   ├── Quiz.js
+│   │   ├── Question.js
+│   │   └── Results.js
+│   ├── data/
+│   │   └── questions.json
+│   ├── App.js
+│   └── index.js
+├── package.json
+└── README.md
 ```
