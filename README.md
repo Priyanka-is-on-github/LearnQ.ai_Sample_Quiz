@@ -11,11 +11,6 @@ A dynamic web-based quiz application built with React. This project allows users
 - [Installation](#installation)
 - [Usage](#usage)
 - [Project Structure](#project-structure)
-- [Deployment](#deployment)
-- [Contributing](#contributing)
-- [License](#license)
-- [Contact](#contact)
-
 ---
 
 ## Features
@@ -34,7 +29,7 @@ A dynamic web-based quiz application built with React. This project allows users
 - **React** – Front-end framework for building the user interface.
 - **better-react-mathjax** – For rendering LaTeX and mathematical expressions.
 - **XLSX (SheetJS)** – *(Optional)* For converting Excel files to JSON.
-- **CSS/SCSS** – For styling the application.
+- **TailwindCSS** – For styling the application.
 - **Vercel** – For deployment (We can choose anyoe based on preference).
 
 ---
