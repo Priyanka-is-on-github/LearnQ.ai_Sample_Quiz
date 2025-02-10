@@ -1,8 +1,5 @@
-
 import { QuestionType } from "../util/type";
 import { parseQuestion } from "../util/parse_question";
-
-
 
 const Question = ({
   question,
@@ -15,21 +12,26 @@ const Question = ({
   selectedOption: string | number;
   onOptionSelect: (quizAns: number) => void;
 }) => {
- 
-
   return (
     <>
-      <div className="flex justify-between">
-        <div>
-          <span className="text-xl"> {`Q. ${questionIndex + 1} of 4`}</span>
-          <span className=" ml-4 text-slate-500">
+      <div className="flex flex-col sm:flex-row justify-between items-center sm:items-start gap-2 sm:gap-0">
+        <div className="text-center sm:text-left">
+          <span className="text-lg sm:text-xl">{`Q. ${
+            questionIndex + 1
+          } of 4`}</span>
+          <span className="ml-2 sm:ml-4 text-sm sm:text-base text-slate-500 block sm:inline">
             Difficulty level: {question["Difficulty Level"]}
           </span>
         </div>
-        <span className="text-xl"> Marks: {question["Marks allocated"]}</span>
+
+        <span className="text-lg sm:text-xl">
+          Marks: {question["Marks allocated"]}
+        </span>
       </div>
 
-      <div className="my-10 text-2xl "> {parseQuestion(question.Question)}</div>
+      <div className="my-6 sm:my-10 text-lg sm:text-2xl text-center sm:text-left">
+        {parseQuestion(question.Question)}
+      </div>
 
       <div className="mb-10 ">
         <div
