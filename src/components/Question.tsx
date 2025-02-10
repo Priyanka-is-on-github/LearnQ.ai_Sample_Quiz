@@ -1,15 +1,8 @@
-import { MathJax } from "better-react-mathjax";
 
-type Question = {
-  Question: string;
-  "Option 1": string | number;
-  "Option 2": string | number;
-  "Option 3": string | number;
-  "Option 4": string | number;
-  "Correct Option": number;
-  "Marks allocated": number;
-  "Difficulty Level": string;
-};
+import { QuestionType } from "../util/type";
+import { parseQuestion } from "../util/parse_question";
+
+
 
 const Question = ({
   question,
@@ -17,41 +10,12 @@ const Question = ({
   selectedOption,
   onOptionSelect,
 }: {
-  question: Question;
+  question: QuestionType;
   questionIndex: number;
   selectedOption: string | number;
   onOptionSelect: (quizAns: number) => void;
 }) => {
-  const parseQuestion = (questionText: string | number) => {
-    const text = questionText.toString(); 
-
-    const regex = /([\d+\-*/^()=]+)/g;
-
-    return text.split(regex).map((part, index) => {
-      const trimmedPart = part.trim();
-
-      if (regex.test(trimmedPart)) {
-       
-        const formattedMath = trimmedPart.replace(
-          /(?<=\d)\s*\.\s*(?=[a-zA-Z])|(?<=[a-zA-Z])\s*\.\s*(?=[a-zA-Z])/g,
-          ""
-        );
-
-        return (
-          <MathJax key={index} inline dynamic={true}>
-            {`\\(${formattedMath}\\)`}
-          </MathJax>
-        );
-      }
-
-     
-      return (
-        <span key={index} style={{ marginRight: "5px" }}>
-          {trimmedPart}
-        </span>
-      );
-    });
-  };
+ 
 
   return (
     <>

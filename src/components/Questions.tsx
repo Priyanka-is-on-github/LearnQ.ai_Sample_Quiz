@@ -3,26 +3,14 @@ import { useEffect, useState } from "react";
 import questionsData from "../util/quiz_dataset.json";
 import Question from "./Question";
 import { useNavigate, useParams } from "react-router-dom";
+import { QuestionType } from "../util/type";
 
 type AnswerType = {
   [key: number]: string | number;
 };
 
-type QuestionType = {
-  Question: string;
-  "Option 1": string | number;
-  "Option 2": string | number;
-  "Option 3": string | number;
-  "Option 4": string | number;
-  "Correct Option": number;
-  "Marks allocated": number;
-  "Difficulty Level": string;
-};
 function Questions() {
-
-  
   const [currentIndex, setCurrentIndex] = useState(0);
-
 
   const [answers, setAnswers] = useState<AnswerType>({});
   const [quizQuestion, setQuizQuestion] = useState<QuestionType[]>([]);

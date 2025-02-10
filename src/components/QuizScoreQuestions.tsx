@@ -1,4 +1,4 @@
-import { MathJax } from "better-react-mathjax";
+import { parseQuestion } from "../util/parse_question";
 
 type QuestionType = {
   question: string;
@@ -21,37 +21,6 @@ function QuizScoreQuestions({
   correctOption,
   selectedOption,
 }: QuestionType) {
-  const parseQuestion = (questionText: string | number) => {
-    const text = questionText.toString(); // Ensure it's a string
-
-    const regex = /([\d+\-*/^()]+)/g;
-
-    return text.split(regex).map((part, index) => {
-      const trimmedPart = part.trim();
-
-      if (regex.test(trimmedPart)) {
-        // Format math expression without extra dots
-        const formattedMath = trimmedPart.replace(
-          /(?<=\d)\s*\.\s*(?=[a-zA-Z])|(?<=[a-zA-Z])\s*\.\s*(?=[a-zA-Z])/g,
-          ""
-        );
-
-        return (
-          <MathJax key={index} inline>
-            {`\\(${formattedMath}\\)`}
-          </MathJax>
-        );
-      }
-
-      // Keep normal "x" as text, not inside MathJax
-      return (
-        <span key={index} style={{ marginRight: "5px" }}>
-          {trimmedPart}
-        </span>
-      );
-    });
-  };
-
   return (
     <>
       <div className="flex justify-between my-4">
