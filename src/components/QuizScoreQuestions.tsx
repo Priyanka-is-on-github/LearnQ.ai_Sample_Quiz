@@ -24,7 +24,7 @@ function QuizScoreQuestions({
   const parseQuestion = (questionText: string | number) => {
     const text = questionText.toString(); // Ensure it's a string
 
-    const regex = /([\d+\-*/^()=xyz]+)/g;
+    const regex = /([\d+\-*/^()]+)/g;
 
     return text.split(regex).map((part, index) => {
       const trimmedPart = part.trim();

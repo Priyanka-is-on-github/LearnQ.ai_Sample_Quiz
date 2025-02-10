@@ -25,7 +25,7 @@ const Question = ({
   const parseQuestion = (questionText: string | number) => {
     const text = questionText.toString(); 
 
-    const regex = /([\d+\-*/^()=xyz]+)/g;
+    const regex = /([\d+\-*/^()=]+)/g;
 
     return text.split(regex).map((part, index) => {
       const trimmedPart = part.trim();
@@ -38,7 +38,7 @@ const Question = ({
         );
 
         return (
-          <MathJax key={index} inline>
+          <MathJax key={index} inline dynamic={true}>
             {`\\(${formattedMath}\\)`}
           </MathJax>
         );
