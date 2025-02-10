@@ -86,37 +86,35 @@ function Questions() {
         />
 
         <div className=" flex justify-center">
-        <div className="w-full sm:w-[30%] flex flex-col sm:flex-row justify-between gap-2">
-  <button
-    onClick={prevQuestion}
-    disabled={currentIndex === 0}
-    className="bg-blue-400 py-2 px-4 font-semibold rounded-xl w-full sm:w-[40%] shadow-xl hover:cursor-pointer hover:bg-blue-500 disabled:bg-gray-300"
-  >
-    Previous
-  </button>
+          <div className="w-full sm:w-[30%] flex flex-col sm:flex-row justify-between gap-2">
+            <button
+              onClick={prevQuestion}
+              disabled={currentIndex === 0}
+              className="bg-blue-400 py-2 px-4 font-semibold rounded-xl w-full sm:w-[40%] shadow-xl hover:cursor-pointer hover:bg-blue-500 disabled:bg-gray-300"
+            >
+              Previous
+            </button>
 
-  <span className="text-xl text-slate-600 w-full sm:w-[40%] text-center">
-    {` ${currentIndex + 1} of 4`}
-  </span>
+            <span className="text-xl text-slate-600 w-full sm:w-[40%] text-center">
+              {` ${currentIndex + 1} of 4`}
+            </span>
 
-  {currentIndex < quizQuestion.length - 1 ? (
-    <button
-      onClick={nextQuestion}
-      className="bg-blue-400 py-2 px-4 font-semibold rounded-xl w-full sm:w-[40%] shadow-xl hover:cursor-pointer hover:bg-blue-500"
-    >
-      Next
-    </button>
-  ) : (
-    <button
-      onClick={() => submitQuiz()}
-      className="bg-green-400 py-2 px-4 font-semibold rounded-xl shadow-xl w-full sm:w-[40%] hover:cursor-pointer hover:bg-green-500"
-    >
-      Submit
-    </button>
-  )}
-</div>
-
-      
+            {currentIndex < quizQuestion.length - 1 ? (
+              <button
+                onClick={nextQuestion}
+                className="bg-blue-400 py-2 px-4 font-semibold rounded-xl w-full sm:w-[40%] shadow-xl hover:cursor-pointer hover:bg-blue-500"
+              >
+                Next
+              </button>
+            ) : (
+              <button
+                onClick={() => submitQuiz()}
+                className="bg-green-400 py-2 px-4 font-semibold rounded-xl shadow-xl w-full sm:w-[40%] hover:cursor-pointer hover:bg-green-500"
+              >
+                Submit
+              </button>
+            )}
+          </div>
         </div>
       </div>
     </>
