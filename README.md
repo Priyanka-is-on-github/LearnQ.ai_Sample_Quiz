@@ -35,7 +35,7 @@ A dynamic web-based quiz application built with React. This project allows users
 - **better-react-mathjax** – For rendering LaTeX and mathematical expressions.
 - **XLSX (SheetJS)** – *(Optional)* For converting Excel files to JSON.
 - **CSS/SCSS** – For styling the application.
-- **Netlify/Heroku** – For deployment (choose based on your preference).
+- **Vercel** – For deployment (We can choose anyoe based on preference).
 
 ---
 
