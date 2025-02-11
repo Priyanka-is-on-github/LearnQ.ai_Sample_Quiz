@@ -5,20 +5,18 @@ import Question from "./Question";
 import { useNavigate, useParams } from "react-router-dom";
 import { QuestionType } from "../util/type";
 
-type AnswerType = {
-  [key: number]: string | number;
-};
+
+
 
 function Questions() {
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  const [answers, setAnswers] = useState<AnswerType>({});
+  const [answers, setAnswers] = useState<number[]>([]);
   const [quizQuestion, setQuizQuestion] = useState<QuestionType[]>([]);
 
   const navigate = useNavigate();
 
-  const { id } = useParams();
-  const difficulty = id;
+  let { difficulty } = useParams();
 
   const nextQuestion = () => {
     if (currentIndex < quizQuestion.length - 1) {
@@ -42,10 +40,7 @@ function Questions() {
   };
 
   const handleOptionSelect = (quizAns: number) => {
-    setAnswers({
-      ...answers,
-      [currentIndex]: quizAns,
-    });
+    setAnswers([ ...answers, quizAns]);
   };
 
   useEffect(() => {
@@ -61,13 +56,11 @@ function Questions() {
         );
       }
 
-      // randomly pick 4 questions based on difficulty
-
       const shuffled = filteredQuestions.sort(() => 0.5 - Math.random());
       const selected = shuffled.slice(0, 4);
       setQuizQuestion(selected);
     })();
-  }, [id]);
+  }, [difficulty]);
 
   if (quizQuestion.length === 0) {
     return (

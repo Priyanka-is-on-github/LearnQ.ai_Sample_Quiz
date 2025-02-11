@@ -21,6 +21,8 @@ function QuizScoreQuestions({
   correctOption,
   selectedOption,
 }: QuestionType) {
+
+ 
   return (
     <>
       <div className="flex flex-col sm:flex-row justify-between my-4">

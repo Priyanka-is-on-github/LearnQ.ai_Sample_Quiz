@@ -1,6 +1,7 @@
 
 
 export type QuestionType = {
+ "id": number;
   Question: string;
   "Option 1": string | number;
   "Option 2": string | number;

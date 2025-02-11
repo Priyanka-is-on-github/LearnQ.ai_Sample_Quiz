@@ -4,7 +4,16 @@ function SelectDifficulty() {
   const navigate = useNavigate();
 
   const handleDifficulty = (difficulty: string) => {
-    navigate(`/${difficulty}/question`);
+
+    if(difficulty !== 'any')
+    {
+      navigate(`/${difficulty}/question`);
+    }
+    else{
+    
+      navigate(`/any/question`);
+    }
+   
   };
 
   return (

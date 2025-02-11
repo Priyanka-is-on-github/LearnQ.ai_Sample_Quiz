@@ -7,21 +7,23 @@ function QuizScore() {
   const location = useLocation();
   const { quizQuestions, answers } = location.state || {
     quizQuestions: [],
-    answers: {},
+    answers: [],
   };
 
+ 
+let length = quizQuestions.length;
   const totalScore = quizQuestions.map((q: QuestionType, index: number) => {
     return q["Correct Option"] === answers[index];
   });
 
   const score = totalScore.filter(Boolean).length;
 
-  const percentage = (score / 4) * 100;
+  const percentage = length > 0 ? ((score / length) * 100).toFixed(2) : "0";
 
   return (
     <>
       <div className="flex justify-between">
-        <span className="text-xl"> Total Score: {score} / 4</span>
+        <span className="text-xl"> Total Score: {score} / {length}</span>
 
         <span className="text-xl"> Percentage: {percentage}%</span>
       </div>

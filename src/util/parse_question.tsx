@@ -1,11 +1,11 @@
 
 import { MathJax } from "better-react-mathjax";
-export const parseQuestion = (questionText: string | number) => {
-    const text = questionText.toString(); 
+export const parseQuestion = (questionText: string | number |undefined) => {
+    const text = questionText?.toString(); 
 
     const regex = /([\d+\-*/^()=]+)/g;
 
-    return text.split(regex).map((part, index) => {
+    return text?.split(regex).map((part, index) => {
       const trimmedPart = part.trim();
 
       if (regex.test(trimmedPart)) {
