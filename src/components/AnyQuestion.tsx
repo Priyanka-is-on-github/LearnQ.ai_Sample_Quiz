@@ -38,6 +38,7 @@ function AnyQuestion() {
           anyQuestion?.id
         );
 
+        console.log('nextq=', nextQuestion)
         setSelectedOption(0);
         setAnyQuestion(nextQuestion);
       } else {

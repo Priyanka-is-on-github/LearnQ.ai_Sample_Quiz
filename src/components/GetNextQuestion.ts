@@ -1,13 +1,13 @@
 import questionsData from "../util/quiz_dataset.json";
 
-export function GetNextQuestion(
+export function GetNextQuestion( 
   difficulty: string | undefined,
   studentAns: number,
   correctAns: number | undefined,
   attempedId: number[],
-  prevId: number | undefined
+  prevId: number | undefined 
 ) {
-  if (prevId !== undefined) {
+  if (prevId !== undefined) { 
     attempedId.push(prevId);
   }
 
@@ -15,18 +15,18 @@ export function GetNextQuestion(
     if (studentAns === correctAns) {
       console.log(studentAns === correctAns);
 
-      difficulty = "medium";
+      difficulty = "medium"; 
 
-      const filteredQuestion = questionsData.filter(
-        (q) => !attempedId.includes(q["id"])
+      const filteredQuestion = questionsData.filter( 
+        (q) => !attempedId.includes(q["id"]) 
       );
 
       const nextQues = filteredQuestion.find(
-        (q) => q["Difficulty Level"].toLowerCase() === difficulty?.toLowerCase()
+        (q) => q["Difficulty Level"].toLowerCase() === difficulty?.toLowerCase() 
       );
 
-      return nextQues;
-    } else {
+      return nextQues; 
+    } else { 
       const filteredQuestion = questionsData.filter(
         (q) => !attempedId.includes(q["id"])
       );
@@ -37,7 +37,7 @@ export function GetNextQuestion(
 
       return nextQues;
     }
-  } else if (difficulty?.toLocaleLowerCase() === " medium") {
+  } else if (difficulty?.toLocaleLowerCase() === "medium") { 
     if (studentAns === correctAns) {
       difficulty = "hard";
 
@@ -50,8 +50,8 @@ export function GetNextQuestion(
       );
 
       return nextQues;
-    } else {
-      difficulty = "easy";
+    } else { 
+      difficulty = "easy"; 
       const filteredQuestion = questionsData.filter(
         (q) => !attempedId.includes(q["id"])
       );
@@ -75,7 +75,7 @@ export function GetNextQuestion(
       );
       return nextQues;
     } else {
-      difficulty = "medium";
+      difficulty = "medium"; 
 
       const filteredQuestion = questionsData.filter(
         (q) => !attempedId.includes(q["id"])
